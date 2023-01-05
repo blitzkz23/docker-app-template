@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres-example:
+    image: postgres:14-alpine
+    container_name: postgres-example
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - "postgres-volume:/var/lib/postgresql/data"
+    restart: always
+  
+volumes:
+  postgres-volume:
+    name: postgres-volume 
